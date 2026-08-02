@@ -42,7 +42,16 @@ def log_operation(gm_user, action, target_uid=None, detail=None, ip=None):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return jsonify({
+        'code': 0,
+        'msg': '一剑封天GM后台API运行中',
+        'endpoints': {
+            'login': '/api/login',
+            'player_list': '/api/player/list',
+            'dashboard': '/api/dashboard'
+        }
+    })
+
 
 
 # ==================== 登录接口 ====================
